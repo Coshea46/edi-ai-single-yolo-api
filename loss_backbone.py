@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 class loss_backbone(nn.Module):
-    def __init__(self, confidence_weight, coord_weight, loss_function):
+    def __init__(self, confidence_weight, coord_weight):
         super().__init__()
 
         self.confidence_weight = confidence_weight
