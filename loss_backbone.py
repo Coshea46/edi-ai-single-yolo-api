@@ -8,7 +8,7 @@ class loss_backbone(nn.Module):
         self.coord_weight = coord_weight
         # We store the student's function here
         self.loss_logic_fn = loss_logic_fn
-        self.mse = nn.MSELoss(reduction='mean')
+        self.mse = nn.MSELoss(reduction='none')
 
 
     def forward(self, predictions, targets):
