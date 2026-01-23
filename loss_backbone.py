@@ -2,13 +2,13 @@ import torch
 import torch.nn as nn
 
 class loss_backbone(nn.Module):
-    def __init__(self, confidence_weight, coord_weight):
+    def __init__(self, confidence_weight, coord_weight, loss_logic_fn):
         super().__init__()
-
         self.confidence_weight = confidence_weight
         self.coord_weight = coord_weight
+        # We store the student's function here
+        self.loss_logic_fn = loss_logic_fn
 
-
-    def forward(self,predictions, targets, loss_function_kaggle):
-        return loss_function_kaggle(predictions, targets, self.confidence_weight, self.coord_weight)  # function body of loss_function_kaggleshould be implemented in kaggle
-    
+    def forward(self, predictions, targets):
+        # Now the forward pass knows exactly which function to use
+        return self.loss_logic_fn(predictions, targets, self.confidence_weight, self.coord_weight)
