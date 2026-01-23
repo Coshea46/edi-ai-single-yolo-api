@@ -8,7 +8,7 @@ from torchvision import transforms
 class RaccoonDataset(Dataset):
     def __init__(self, dataframe, transform=None):
         self.df = dataframe
-        self.root_dir_images= "./Data/archive/Racoon Images/images"
+        self.root_dir_images= "/kaggle/input/racoon-detection/Racoon Images/images"
         self.transform = transform
         
 
